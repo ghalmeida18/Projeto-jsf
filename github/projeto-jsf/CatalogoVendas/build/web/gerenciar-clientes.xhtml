@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml"
+             xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+             xmlns:p="http://primefaces.org/ui">
+    
+    <h:form>
+        <p:panel>
+            <p:toolbarGroup>
+                <p:commandButton value="Atualizar" action="#{clienteBEAN.getClientesBanco()}" update="@form" ></p:commandButton>
+            </p:toolbarGroup>
+        </p:panel>
+        
+        <p:panel header="Nova Entrada" footer="Cadastro de Clientes" style="margin-bottom:20px">
+            <p:panelGrid columns="2">
+                <h:outputLabel>Nome </h:outputLabel>
+                <p:inputText value="#{clienteBEAN.cliente.nome}"></p:inputText>
+                <h:outputLabel>CPF </h:outputLabel>
+                <p:inputMask  mask="999.999.999-99" value="#{clienteBEAN.cliente.CPF}"></p:inputMask>
+                <h:outputLabel>Endereço </h:outputLabel>
+                <p:inputText value="#{clienteBEAN.cliente.endereco}"></p:inputText>
+                
+                <p:toolbarGroup>
+                    <p:commandButton value="Adicionar" action="#{clienteBEAN.AdicionarCliente()}" update="@form"> </p:commandButton>
+                </p:toolbarGroup>
+            </p:panelGrid>
+        </p:panel>
+        
+        <p:panel header="Listagem" footer="Clientes Cadastrados" style="margin-bottom:20px">
+            <p:dataTable value="#{clienteBEAN.clientes}" var="cliente">
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{cliente.nome}"></h:outputText>
+                    </p:column>
+                    <p:column headerText="CPF">
+                        <h:outputText value="#{cliente.CPF}"></h:outputText>
+                    </p:column>
+                    <p:column headerText="Endereço">
+                        <h:outputText value="#{cliente.endereco}"></h:outputText>
+                    </p:column>
+                </p:dataTable>
+         </p:panel>
+        
+        
+        
+    </h:form>
+    
+             
+    
+</ui:decorate>
+
