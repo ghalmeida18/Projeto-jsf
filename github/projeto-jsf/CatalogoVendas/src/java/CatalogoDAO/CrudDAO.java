@@ -8,7 +8,7 @@ public interface CrudDAO<E> {//Entidade
     
     public void salvar(E entidade) throws ErroSistema;
     public void deletar(E entidade) throws ErroSistema;
-    public ArrayList<E> buscar() throws ErroSistema;
+    public List<E> buscar() throws ErroSistema;
     
     
 }
