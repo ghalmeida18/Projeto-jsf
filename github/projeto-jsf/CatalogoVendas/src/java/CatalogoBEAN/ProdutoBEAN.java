@@ -19,9 +19,6 @@ public class ProdutoBEAN {
         setProdutos(this.produtoDAD.buscar());
     }
     
-    
-    
-    
     public void AdicionarProduto() throws ErroSistema{
         produtos.add(produto);
         this.produtoDAD.salvar(produto);
@@ -49,7 +46,4 @@ public class ProdutoBEAN {
         setProdutos(this.produtoDAD.buscar());
         
     }
-    
-    
-    
 }
